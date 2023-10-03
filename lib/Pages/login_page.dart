@@ -1,3 +1,5 @@
+import 'package:school_app/models/sign_in_page_data.dart';
+
 import '../util/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -11,8 +13,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
+    final data = SignInData();
 
     return SafeArea(
       child: Scaffold(
@@ -33,22 +34,31 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const Text(
                     'Name of School',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 50,
+                    height: 30,
                   ),
-                  InputTextField(
-                      hintText: 'Email',
-                      icon: const Icon(Icons.email),
-                      textController: emailController),
+                  InputBox(
+                    inputLabel: 'Email',
+                    placeHolder: 'enter an email address',
+                    update: (value) {
+                      data.email = value;
+                    },
+                    icon: const Icon(Icons.person),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
-                  InputTextField(
-                      hintText: 'password',
-                      icon: const Icon(Icons.lock),
-                      textController: passwordController),
+                  InputBox(
+                    inputLabel: 'Password',
+                    placeHolder: '************',
+                    update: (value) {
+                      data.password = value;
+                    },
+                    isPassword: true,
+                    icon: const Icon(Icons.lock),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -60,10 +70,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     onPressed: () async {
-                      await Navigator.popAndPushNamed(
-                        context,
-                        'login',
-                      );
+                      data.printSignInData();
+                      // await Navigator.popAndPushNamed(
+                      //   context,
+                      //   'login',
+                      // );
                     },
                     child: Ink(
                       decoration: BoxDecoration(
@@ -83,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         constraints: const BoxConstraints(
-                          maxWidth: 140,
+                          maxWidth: 200,
                         ),
                         child: const Center(
                           child: Text(
