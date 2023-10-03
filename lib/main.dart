@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/Pages/gettingStartedPage.dart';
 import 'package:school_app/Pages/loginPage.dart';
 import 'package:flutter/services.dart';
 
@@ -11,8 +12,9 @@ void main() {
     theme: ThemeData(
       fontFamily: 'Poppins',
     ),
-    initialRoute: 'login',
+    initialRoute: '/',
     routes: {
+      '/': (context) => const GettingStartedPage(),
       'login': (context) => const LoginScreen(),
     },
   ));
