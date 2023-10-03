@@ -7,7 +7,9 @@ void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.white,
   ));
-  runApp(MaterialApp(
+  runApp(
+    MaterialApp(
+    debugShowCheckedModeBanner: false,
     title: 'N School',
     theme: ThemeData(
       fontFamily: 'Poppins',
