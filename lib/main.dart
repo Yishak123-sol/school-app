@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:school_app/Pages/gettingStartedPage.dart';
-import 'package:school_app/Pages/loginPage.dart';
+import 'package:school_app/Pages/gettingstarted_Page.dart';
+import 'package:school_app/Pages/login_page.dart';
 import 'package:flutter/services.dart';
 
 void main() {

@@ -4,12 +4,12 @@ class InputTextField extends StatelessWidget {
   final String hintText;
   final Icon icon;
   final TextEditingController textController;
-  const InputTextField(
-      {super.key,
-      required this.hintText,
-      required this.icon,
-      required this.textController,
-      });
+  const InputTextField({
+    super.key,
+    required this.hintText,
+    required this.icon,
+    required this.textController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,6 @@ class InputTextField extends StatelessWidget {
         border: outlineInputBorder,
         enabledBorder: outlineInputBorder,
         focusedBorder: outlineInputBorder,
-
       ),
     );
   }
@@ -32,7 +31,7 @@ class InputTextField extends StatelessWidget {
 
 class WidgetSpace extends StatelessWidget {
   const WidgetSpace({Key? key, this.child, this.space = 0.0}) : super(key: key);
-  final child;
+  final dynamic child;
   final double space;
   @override
   Widget build(BuildContext context) => Column(
