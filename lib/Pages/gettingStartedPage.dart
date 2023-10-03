@@ -51,7 +51,7 @@ class _GettingStartedPageState extends State<GettingStartedPage> {
             image: orientation == Orientation.portrait
                 ? Image.asset(
                     'assets/images/dum.png',
-                    height: 400,
+                    height: 300,
                   )
                 : null,
             decoration: pageDecoration,
@@ -62,7 +62,7 @@ class _GettingStartedPageState extends State<GettingStartedPage> {
             image: orientation == Orientation.portrait
                 ? Image.asset(
                     'assets/images/dum.png',
-                    height: 400,
+                    height: 300,
                   )
                 : null,
             decoration: pageDecoration,
@@ -73,7 +73,7 @@ class _GettingStartedPageState extends State<GettingStartedPage> {
             image: orientation == Orientation.portrait
                 ? Image.asset(
                     'assets/images/dum.png',
-                    height: 400,
+                    height: 300,
                   )
                 : null,
             bodyWidget: Column(
