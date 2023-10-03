@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
 
 class InputTextField extends StatelessWidget {
-  const InputTextField({
-    super.key,
-  });
+  final String hintText;
+  final Icon icon;
+  final TextEditingController textController;
+  const InputTextField(
+      {super.key,
+      required this.hintText,
+      required this.icon,
+      required this.textController,
+      });
 
   @override
   Widget build(BuildContext context) {
-    return const TextField(
+    OutlineInputBorder outlineInputBorder = const OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)));
+    return TextField(
+      controller: textController,
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(15),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)))),
+        contentPadding: const EdgeInsets.all(15),
+        prefixIcon: icon,
+        hintText: hintText,
+        border: outlineInputBorder,
+        enabledBorder: outlineInputBorder,
+        focusedBorder: outlineInputBorder,
+
+      ),
     );
   }
 }
