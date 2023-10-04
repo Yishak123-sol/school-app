@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class InputBox extends StatefulWidget {
   const InputBox({
@@ -143,5 +144,74 @@ class WidgetSpace extends StatelessWidget {
             height: space,
           )
         ],
+      );
+}
+
+class DatePicker extends StatefulWidget {
+  const DatePicker({
+    super.key,
+    this.placeHolder,
+    this.update,
+    this.inputLabel,
+  });
+  final placeHolder;
+  final inputLabel;
+  final update;
+  @override
+  State<StatefulWidget> createState() => _DatePicker();
+}
+
+class _DatePicker extends State<DatePicker> {
+  TextEditingController dateInput = TextEditingController();
+
+  @override
+  void initState() {
+    dateInput.text = ''; //set the initial value of text field
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) => TextField(
+        controller: dateInput,
+        //editing controller of this TextField
+        decoration: InputDecoration(
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(50, 0, 0, 0)),
+          ),
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(width: 16, color: Colors.white),
+          ),
+          labelText: widget.inputLabel,
+          labelStyle: const TextStyle(
+            fontWeight: FontWeight.w300,
+            fontSize: 14,
+          ),
+          suffixIcon: const Icon(Icons.calendar_today),
+        ),
+        readOnly: true,
+        //set it true, so that user will not able to edit text
+        onTap: () async {
+          final pickedDate = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(1950),
+            //DateTime.now() - not to allow to choose before today.
+            lastDate: DateTime(2120),
+          );
+
+          if (pickedDate != null) {
+            print(
+              pickedDate,
+            ); //pickedDate output format => 2021-03-10 00:00:00.000
+            final formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+            //formatted date output using intl package =>  2021-03-16
+            setState(() {
+              dateInput.text =
+                  formattedDate; //set output date to TextField value.
+              //update the value;
+              widget.update(formattedDate);
+            });
+          } else {}
+        },
       );
 }
