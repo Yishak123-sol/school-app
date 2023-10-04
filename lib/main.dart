@@ -4,7 +4,8 @@ import 'package:school_app/Pages/login_page.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.white,
   ));
   runApp(

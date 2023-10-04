@@ -24,12 +24,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                      'assets/images/dum.png',
-                      height: 200,
-                    ),
+                  Image.asset(
+                    'assets/images/dum.png',
+                    height: 200,
                   ),
                   const Text(
                     'Name of School',
@@ -40,15 +37,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   InputTextField(
                       hintText: 'Email',
+                      textInputType: TextInputType.emailAddress,
                       icon: const Icon(Icons.email),
                       textController: emailController),
                   const SizedBox(
                     height: 20,
                   ),
                   InputTextField(
-                      hintText: 'password',
-                      icon: const Icon(Icons.lock),
-                      textController: passwordController),
+                    hintText: 'password',
+                    textInputType: TextInputType.visiblePassword,
+                    icon: const Icon(Icons.lock),
+                    textController: passwordController,
+                    obscureText: true,
+                  ),
                   const SizedBox(
                     height: 20,
                   ),

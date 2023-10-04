@@ -69,7 +69,7 @@ class _GettingStartedPageState extends State<GettingStartedPage> {
           ),
           PageViewModel(
             useScrollView: false,
-            title: "",
+            title: "N School",
             image: orientation == Orientation.portrait
                 ? Image.asset(
                     'assets/images/dum.png',
@@ -132,6 +132,8 @@ class _GettingStartedPageState extends State<GettingStartedPage> {
                     ),
                   ),
                 ),
+        
+        
               ],
             ),
             decoration: pageDecoration,
