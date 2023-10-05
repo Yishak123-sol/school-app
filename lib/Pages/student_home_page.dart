@@ -43,14 +43,12 @@ class _StudentHomePageState extends State<StudentHomePage>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     tabController = TabController(vsync: this, length: 2);
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     tabController.dispose();
   }
@@ -103,7 +101,7 @@ class StudentMark extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return const SizedBox(
       width: 100,
       height: 100,
       child: Center(
@@ -125,10 +123,10 @@ class StudentProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return const SizedBox(
       width: 100,
       height: 100,
-      child: Center(
+      child:  Center(
         child: Text(
           'Hello, profile!',
           style: TextStyle(

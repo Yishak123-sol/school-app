@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/Pages/adminpanel_page.dart';
 import 'package:school_app/Pages/gettingstarted_Page.dart';
 import 'package:school_app/Pages/login_page.dart';
 import 'package:flutter/services.dart';
 import 'package:school_app/Pages/student_home_page.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.white,
   ));
   runApp(MaterialApp(
@@ -15,11 +15,12 @@ void main() {
     theme: ThemeData(
       fontFamily: 'Poppins',
     ),
-    initialRoute: 'student',
+    initialRoute: 'Adminpanel',
     routes: {
       '/': (context) => const GettingStartedPage(),
       'login': (context) => const LoginScreen(),
       'student': (context) => const StudentHomePage(),
+      'Adminpanel': (context) => const AdminPanelPage()
     },
   ));
 }
