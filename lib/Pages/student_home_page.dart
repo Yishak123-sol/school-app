@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/Pages/student_profile_page.dart';
+import 'package:school_app/Pages/student_review_add_page.dart';
 
 class StudentHomePage extends StatefulWidget {
   const StudentHomePage({super.key});
@@ -124,31 +125,6 @@ class StudentMark extends StatelessWidget {
       child: Center(
         child: Text(
           'Hello, mark!',
-          style: TextStyle(
-            fontSize: 20,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ReviewADD extends StatefulWidget {
-  const ReviewADD({super.key});
-
-  @override
-  State<ReviewADD> createState() => _ReviewADDState();
-}
-
-class _ReviewADDState extends State<ReviewADD> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 100,
-      child: Center(
-        child: Text(
-          'Hello, Review!',
           style: TextStyle(
             fontSize: 20,
           ),
