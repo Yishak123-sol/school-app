@@ -89,7 +89,7 @@ class _ReviewADDState extends State<ReviewADD> {
                       onPressed: () {},
                       icon: Icon(
                         Icons.star,
-                        color: Colors.black,
+                        color: Colors.blue.shade900,
                       ),
                     )),
                   ],

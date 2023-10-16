@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/Pages/student_mark_view_page.dart';
 import 'package:school_app/Pages/student_profile_page.dart';
 import 'package:school_app/Pages/student_review_add_page.dart';
 
@@ -110,26 +111,4 @@ class _StudentHomePageState extends State<StudentHomePage>
           ),
         ),
       );
-}
-
-class StudentMark extends StatelessWidget {
-  const StudentMark({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 100,
-      child: Center(
-        child: Text(
-          'Hello, mark!',
-          style: TextStyle(
-            fontSize: 20,
-          ),
-        ),
-      ),
-    );
-  }
 }
