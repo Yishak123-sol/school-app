@@ -215,3 +215,21 @@ class _DatePicker extends State<DatePicker> {
         },
       );
 }
+
+class Headlines extends StatelessWidget {
+  const Headlines({super.key, required this.text, this.end = false});
+  final text;
+  final end;
+
+  @override
+  Widget build(BuildContext context) => Text(
+        text,
+        textAlign: end ? TextAlign.end : TextAlign.start,
+        style: const TextStyle(
+          fontSize: 14,
+          height: 1.6,
+          fontWeight: FontWeight.w600,
+          color: Colors.grey,
+        ),
+      );
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/Pages/student_profile_page.dart';
 
 class StudentHomePage extends StatefulWidget {
   const StudentHomePage({super.key});
@@ -27,11 +28,25 @@ class _StudentHomePageState extends State<StudentHomePage>
     ),
     const Tab(
       icon: Icon(
-        Icons.grade,
+        Icons.task_rounded,
         size: 27,
       ),
       child: Text(
         'View Mark',
+        maxLines: 1,
+        softWrap: false,
+        style: TextStyle(
+          fontSize: 13,
+        ),
+      ),
+    ),
+    const Tab(
+      icon: Icon(
+        Icons.star,
+        size: 27,
+      ),
+      child: Text(
+        'Review Teacher',
         maxLines: 1,
         softWrap: false,
         style: TextStyle(
@@ -45,7 +60,7 @@ class _StudentHomePageState extends State<StudentHomePage>
   void initState() {
     // TODO: implement initState
     super.initState();
-    tabController = TabController(vsync: this, length: 2);
+    tabController = TabController(vsync: this, length: 3);
   }
 
   @override
@@ -64,7 +79,7 @@ class _StudentHomePageState extends State<StudentHomePage>
             backgroundColor: Colors.white,
             elevation: 3,
             title: Text(
-              'name name name',
+              'Student Dashboard',
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 24,
@@ -75,7 +90,7 @@ class _StudentHomePageState extends State<StudentHomePage>
         ),
         body: TabBarView(
           controller: tabController,
-          children: [StudentProfile(), StudentMark()],
+          children: [StudentProfile(), StudentMark(), ReviewADD()],
         ),
         bottomNavigationBar: DecoratedBox(
           decoration: const BoxDecoration(
@@ -118,11 +133,14 @@ class StudentMark extends StatelessWidget {
   }
 }
 
-class StudentProfile extends StatelessWidget {
-  const StudentProfile({
-    super.key,
-  });
+class ReviewADD extends StatefulWidget {
+  const ReviewADD({super.key});
 
+  @override
+  State<ReviewADD> createState() => _ReviewADDState();
+}
+
+class _ReviewADDState extends State<ReviewADD> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -130,7 +148,7 @@ class StudentProfile extends StatelessWidget {
       height: 100,
       child: Center(
         child: Text(
-          'Hello, profile!',
+          'Hello, Review!',
           style: TextStyle(
             fontSize: 20,
           ),
