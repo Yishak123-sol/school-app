@@ -10,7 +10,7 @@ void main() {
   ));
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'N School',
+    title: 'NN School',
     theme: ThemeData(
       fontFamily: 'Poppins',
     ),
