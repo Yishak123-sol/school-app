@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/util/widgets.dart';
 
 class ReviewADD extends StatefulWidget {
   @override
@@ -86,7 +87,14 @@ class _ReviewADDState extends State<ReviewADD> {
                       ),
                     ),
                     DataCell(IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertForm(buttonText: 'Add Review');
+                          },
+                        );
+                      },
                       icon: Icon(
                         Icons.star,
                         color: Colors.blue.shade900,
@@ -132,8 +140,90 @@ class _ReviewADDState extends State<ReviewADD> {
     'Science': ['Alice Smith', ''],
     'History': ['Bob Johnson', ''],
   };
+}
 
-  void handleReviewClick(List<String> teacherInfo) {
-    // Handle the review click action
+class AlertForm extends StatefulWidget {
+  final String buttonText;
+
+  const AlertForm({
+    Key? key,
+    required this.buttonText,
+  }) : super(key: key);
+
+  @override
+  State<AlertForm> createState() => _AlertFormState();
+}
+
+class _AlertFormState extends State<AlertForm> {
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      child: contentBox(context),
+    );
+  }
+
+  contentBox(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.blue.withOpacity(0.5),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text(
+            widget.buttonText,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 20),
+          InputBox(
+            inputLabel: "New Comment",
+            placeHolder: "Enter your Comment.",
+            update: (value) {
+              // Handle password update logic here
+            },
+            icon: Icon(Icons.lock),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+              primary: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.0),
+              ),
+            ),
+            onPressed: () {
+              // Handle the password update action
+            },
+            child: Text(
+              'Submit Review',
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
