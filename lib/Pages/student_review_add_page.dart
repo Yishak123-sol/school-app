@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:school_app/util/widgets.dart';
 
 class ReviewADD extends StatefulWidget {
@@ -155,6 +156,9 @@ class AlertForm extends StatefulWidget {
 }
 
 class _AlertFormState extends State<AlertForm> {
+  double ratingValue = 0.0;
+  TextEditingController commentController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -193,13 +197,33 @@ class _AlertFormState extends State<AlertForm> {
             ),
           ),
           const SizedBox(height: 20),
-          InputBox(
-            inputLabel: "New Comment",
-            placeHolder: "Enter your Comment.",
-            update: (value) {
-              // Handle password update logic here
+          // Add Rating widget
+          RatingBar.builder(
+            initialRating: ratingValue,
+            minRating: 0,
+            direction: Axis.horizontal,
+            allowHalfRating: true,
+            itemCount: 5,
+            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+            itemBuilder: (context, _) => Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+            onRatingUpdate: (rating) {
+              setState(() {
+                ratingValue = rating;
+              });
             },
-            icon: Icon(Icons.lock),
+          ),
+          const SizedBox(height: 20),
+          // Add TextField for comment
+          TextField(
+            controller: commentController,
+            decoration: InputDecoration(
+              labelText: "Comment",
+              hintText: "Enter your comment.",
+              icon: Icon(Icons.comment),
+            ),
           ),
           const SizedBox(height: 20),
           ElevatedButton(
@@ -211,7 +235,10 @@ class _AlertFormState extends State<AlertForm> {
               ),
             ),
             onPressed: () {
-              // Handle the password update action
+              // Handle the review submission
+              final comment = commentController.text;
+              print("Rating: $ratingValue");
+              print("Comment: $comment");
             },
             child: Text(
               'Submit Review',
